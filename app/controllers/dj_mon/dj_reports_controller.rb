@@ -3,7 +3,8 @@ module DjMon
     respond_to :json, :html
     layout 'dj_mon'
 
-    before_filter :authenticate
+  # Require authorization before invoking any of this controller's actions:
+    before_filter :authenticate_admin!
     before_filter :set_api_version
 
     def index
